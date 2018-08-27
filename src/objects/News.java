@@ -1,7 +1,6 @@
 package objects;
 
 import org.json.*;
-import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
@@ -29,6 +28,7 @@ public class News
 		this.publishedAt = publishedAt;
 	}
 	
+	//Construct the news from a JSON object
 	public News(JSONObject json)
 	{
 		this.title = "";
@@ -81,6 +81,7 @@ public class News
 		return this.publishedAt;
 	}
 	
+	//Display the news in the console
 	public void print()
 	{
 		System.out.println("* " + this.title + " *\n");

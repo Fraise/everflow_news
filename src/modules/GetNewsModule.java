@@ -2,11 +2,8 @@ package modules;
 
 import helpers.APIHelper;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Set;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -19,8 +16,8 @@ import dao.NewsDAOImpl;
 public class GetNewsModule
 {
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args)
+	{
 		ArrayList<News> news = new ArrayList<News>();
 		NewsDAOImpl newsDao = new NewsDAOImpl();
 		
@@ -29,6 +26,7 @@ public class GetNewsModule
 			JSONObject data = APIHelper.getData(new URL("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=57f4696d8c28484f849bc09108670849"));
 			JSONArray articles = data.getJSONArray("articles");
 			
+			//Create our news list
 			for (int i = 0; i < articles.length(); i++)
 			{
 				news.add(new News(articles.getJSONObject(i)));

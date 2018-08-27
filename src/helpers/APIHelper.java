@@ -6,12 +6,12 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
 public class APIHelper
 {
+	//Retrieve a JSON string from an API, this needs to be a valid JSON object
 	public static JSONObject getData(URL url) throws JSONException, IOException
 	{
 		JSONObject data = new JSONObject();

@@ -22,6 +22,10 @@ public class NewsDAOImpl implements NewsDAO
 		
 	}
 	
+	//Try to fetch the news
+	//First try to get them from the redis cache
+	//If no news is found, then fetch them from the database
+	
 	@Override
 	public ArrayList<News> getNews()
 	{
@@ -49,7 +53,7 @@ public class NewsDAOImpl implements NewsDAO
 		}
 		catch (Exception e)
 		{
-			
+			System.out.println("Could not reach the cache, trying to get the news from the database.");
 		}
 		
 		try
@@ -81,6 +85,8 @@ public class NewsDAOImpl implements NewsDAO
 		
 		return news;
 	}
+	
+	//First try to add news to redis cache, then to the sql database
 	
 	@Override
 	public void addNews(ArrayList<News> news)
@@ -147,6 +153,9 @@ public class NewsDAOImpl implements NewsDAO
 		}
 	}
 	
+	
+	//First try to add news to redis cache, then to the sql database
+	
 	@Override
 	public void addNews(News news)
 	{
@@ -191,6 +200,8 @@ public class NewsDAOImpl implements NewsDAO
 			e.printStackTrace();
 		}
 	}
+	
+	//Remove the news ONLY from the sql database
 	
 	@Override
 	public void removeAllNews()

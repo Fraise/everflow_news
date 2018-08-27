@@ -3,8 +3,6 @@ package dao;
 import objects.News;
 import java.util.ArrayList;
 
-import objects.SqlConnection;
-
 public interface NewsDAO
 {
 	public abstract ArrayList<News> getNews();
